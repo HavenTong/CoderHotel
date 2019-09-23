@@ -25,6 +25,7 @@ public class HotelClocksSystem {
         clocks.put("Beijing", new Clock(UTC_OFFSET_BEIJING));
     }
 
+
     public Map<String, Object> getClocks() {
         return clocks;
     }

@@ -12,6 +12,7 @@ public class PhoneClock extends Clock {
         super(HotelClocksSystem.UTC_OFFSET_BEIJING);
     }
 
+
     public void synchronizeClocks(Map<String, Object> clocks){
         this.localDateTime = LocalDateTime.now();
         for (Map.Entry<String, Object> entry: clocks.entrySet()){
