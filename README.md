@@ -37,6 +37,6 @@
 
 - 使用Junit 5编写测试脚本
 - 对`PhoneClock.java`, `HotelClocksSystem.java`, `HotelClocksSystemController.java`分别编写测试脚本: `PhoneClockTest.java`, `HotelClocksSystemTest.java`, `HotelClocksSystemControllerTest.java`
-- 测试过程中发现的bug已在**issue**中说明
+- 测试过程中发现的bug已在**issues**中说明
 
-- 对`HotelClocksSystemView.java`没有编写测试脚本，而是采用手工测试的方式。具体情况请见**issue**
+- 对`HotelClocksSystemView.java`没有编写测试脚本，而是采用手工测试的方式。具体情况请见**issues**
