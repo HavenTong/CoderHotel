@@ -15,13 +15,19 @@ class HotelClocksSystemControllerTest {
     @DisplayName("Check whether PhoneClocks can synchronize clocks in HotelClocksSystem correctly")
     void synchronizeClocksSystemRight() {
         HotelClocksSystemController hotelClocksSystemController = new HotelClocksSystemController();
+
+        // 执行测试方法
         hotelClocksSystemController.synchronizeClocksSystem();
+
+        // 测试是否对时钟进行同步
         Map<String, Object> clocks = hotelClocksSystemController.getHotelClocksSystem().getClocks();
         for (Map.Entry<String, Object> entry : clocks.entrySet()){
             String key = entry.getKey();
             Clock clock = (Clock)entry.getValue();
             int otherCityClockHour = clock.getLocalDateTime().getHour();
             int phoneClockHour = hotelClocksSystemController.getPhoneClock().getLocalDateTime().getHour();
+
+            // 需要考虑一天中不同时间段的情况，不同时间段两个城市时钟之间的差值不同
             switch (key){
                 case "Moscow":
                     assertEquals(phoneClockHour >= -HotelClocksSystem.UTC_OFFSET_MOSCOW ? HotelClocksSystem.UTC_OFFSET_MOSCOW : 24 + HotelClocksSystem.UTC_OFFSET_MOSCOW,
@@ -45,6 +51,9 @@ class HotelClocksSystemControllerTest {
                     default:
                         break;
             }
+
         }
     }
 }
+
+

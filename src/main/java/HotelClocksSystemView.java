@@ -7,6 +7,7 @@ import java.util.Scanner;
 /**
  * @author HavenTong
  * @date 2019-09-22 11:48
+ * 码农时钟系统的界面
  */
 public class HotelClocksSystemView {
 
@@ -27,8 +28,10 @@ public class HotelClocksSystemView {
         System.out.println("Goodbye, Have a good day!");
     }
 
+
+    /** 展示选项菜单 */
     public static String displayMenu(Scanner in){
-        System.out.println("Please choose one option(1/2/x): ");
+        System.out.println("Please choose one option(1/2/3/x): ");
         System.out.println("1. see the clocks");
         System.out.println("2. see the phone clock");
         System.out.println("3. synchronize the clocks using servant's smart phone");
@@ -53,6 +56,7 @@ public class HotelClocksSystemView {
         }
     }
 
+    /** 展示各个城市的时钟 */
     public static void displayClocks(){
         Map<String, Object> clocks = hotelClocksSystemController.getHotelClocksSystem().getClocks();
         for (Map.Entry<String, Object> entry : clocks.entrySet()){
@@ -67,6 +71,7 @@ public class HotelClocksSystemView {
         System.out.println(" ");
     }
 
+    /** 展示手机时钟 */
     public static void displayPhoneClock(){
         PhoneClock phoneClock = hotelClocksSystemController.getPhoneClock();
         LocalDateTime phoneDateTime = LocalDateTime.now();
@@ -78,12 +83,14 @@ public class HotelClocksSystemView {
         System.out.println(" ");
     }
 
+    /** 展示同步完成后的信息 */
     public static void displayFinishedSynchronize(){
         System.out.println("The clocks are synchronized!");
         System.out.println("======================================");
         System.out.println(" ");
     }
 
+    /** 输入格式错误时，产生提示信息*/
     public static void displayHint(){
         System.out.println("UNKNOWN OPTION");
         System.out.println("======================================");

@@ -13,6 +13,10 @@ public class PhoneClock extends Clock {
     }
 
 
+    /**
+     * @param clocks 表示酒店的城市的时钟
+     * 将手机时钟与酒店时钟同步
+     * */
     public void synchronizeClocks(Map<String, Object> clocks){
         this.localDateTime = LocalDateTime.now();
         for (Map.Entry<String, Object> entry: clocks.entrySet()){

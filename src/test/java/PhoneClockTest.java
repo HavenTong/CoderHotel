@@ -30,32 +30,36 @@ class PhoneClockTest {
         phoneClock.synchronizeClocks(clocks);
 
         // 判断当前时间是否已经同步
+
         for (Map.Entry<String, Object> entry : clocks.entrySet()){
             String key = entry.getKey();
             Clock clock = (Clock)entry.getValue();
+            int otherCityClockHour = clock.getLocalDateTime().getHour();
+            int phoneClockHour = phoneClock.getLocalDateTime().getHour();
+
+            // 同样需要注意不同时间段内，城市之间的时钟的差值不同
             switch (key){
                 case "Moscow":
-                    assertEquals(HotelClocksSystem.UTC_OFFSET_MOSCOW,
-                            clock.getLocalDateTime().getHour() - phoneClock.getLocalDateTime().getHour());
+                    assertEquals(phoneClockHour >= -HotelClocksSystem.UTC_OFFSET_MOSCOW ? HotelClocksSystem.UTC_OFFSET_MOSCOW : 24 + HotelClocksSystem.UTC_OFFSET_MOSCOW,
+                            otherCityClockHour - phoneClockHour);
                     break;
                 case "Sydney":
-                    assertEquals(HotelClocksSystem.UTC_OFFSET_SYDNEY,
-                            clock.getLocalDateTime().getHour() - phoneClock.getLocalDateTime().getHour());
+                    assertEquals(phoneClockHour >= 24 - HotelClocksSystem.UTC_OFFSET_SYDNEY ? HotelClocksSystem.UTC_OFFSET_SYDNEY - 24 : HotelClocksSystem.UTC_OFFSET_SYDNEY,
+                            otherCityClockHour - phoneClockHour);
                     break;
                 case "New York":
-                    assertEquals(HotelClocksSystem.UTC_OFFSET_NEW_YORK,
-                            clock.getLocalDateTime().getHour() - phoneClock.getLocalDateTime().getHour());
+                    assertEquals(phoneClockHour >= -HotelClocksSystem.UTC_OFFSET_NEW_YORK ? HotelClocksSystem.UTC_OFFSET_NEW_YORK : 24 + HotelClocksSystem.UTC_OFFSET_NEW_YORK,
+                            otherCityClockHour - phoneClockHour);
                     break;
                 case "London":
-                    assertEquals(HotelClocksSystem.UTC_OFFSET_LONDON,
-                            clock.getLocalDateTime().getHour() - phoneClock.getLocalDateTime().getHour());
+                    assertEquals(phoneClockHour >= -HotelClocksSystem.UTC_OFFSET_LONDON ? HotelClocksSystem.UTC_OFFSET_LONDON : 24 + HotelClocksSystem.UTC_OFFSET_LONDON,
+                            otherCityClockHour - phoneClockHour);
                     break;
                 case "Beijing":
                     assertEquals(HotelClocksSystem.UTC_OFFSET_BEIJING,
-                            clock.getLocalDateTime().getHour() - phoneClock.getLocalDateTime().getHour());
+                            otherCityClockHour - phoneClockHour);
+                default:
                     break;
-                    default:
-                        break;
             }
         }
     }

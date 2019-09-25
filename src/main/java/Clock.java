@@ -3,12 +3,15 @@ import java.time.LocalDateTime;
 /**
  * @author HavenTong
  * @date 2019-09-22 10:31
- *
+ * 单个酒店时钟
  */
 public class Clock {
 
     // 保证子类PhoneClock对父类属性可见
+    /** 时间 */
     protected LocalDateTime localDateTime;
+
+    /** 相对北京时间的时差偏移 */
     protected int UTCOffset;
 
     public Clock(int UTCOffset) {

@@ -8,12 +8,14 @@ import java.util.Map;
  */
 public class HotelClocksSystem {
 
+    /** 各个城市相对于北京时间的时差 */
     public static final int UTC_OFFSET_MOSCOW = -5;
     public static final int UTC_OFFSET_SYDNEY = 2;
     public static final int UTC_OFFSET_NEW_YORK = -12;
     public static final int UTC_OFFSET_LONDON = -7;
     public static final int UTC_OFFSET_BEIJING = 0;
 
+    /** 酒店时钟 */
     private Map<String, Object> clocks;
 
     public HotelClocksSystem() {

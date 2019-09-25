@@ -9,7 +9,10 @@ import java.util.Map;
  */
 public class HotelClocksSystemController {
 
+    /** 酒店各城市时钟 */
     private HotelClocksSystem hotelClocksSystem;
+
+    /** 手机时钟 */
     private PhoneClock phoneClock;
 
     public HotelClocksSystemController(){
@@ -27,7 +30,7 @@ public class HotelClocksSystemController {
         return phoneClock;
     }
 
-
+    /** Controller控制手机时钟同步酒店时钟 */
     public void synchronizeClocksSystem(){
         phoneClock.synchronizeClocks(hotelClocksSystem.getClocks());
     }
