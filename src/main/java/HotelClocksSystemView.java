@@ -54,7 +54,7 @@ public class HotelClocksSystemView {
     }
 
     public static void displayClocks(){
-        Map<String, Object> clocks = hotelClocksSystemController.getClocks();
+        Map<String, Object> clocks = hotelClocksSystemController.getHotelClocksSystem().getClocks();
         for (Map.Entry<String, Object> entry : clocks.entrySet()){
             Clock clock = (Clock)entry.getValue();
             LocalDateTime localDateTime = clock.getLocalDateTime();

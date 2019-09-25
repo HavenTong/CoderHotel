@@ -17,8 +17,8 @@ public class HotelClocksSystemController {
         this.phoneClock = new PhoneClock();
     }
 
-    public Map<String, Object> getClocks(){
-        return hotelClocksSystem.getClocks();
+    public HotelClocksSystem getHotelClocksSystem() {
+        return hotelClocksSystem;
     }
 
     public PhoneClock getPhoneClock(){
@@ -32,11 +32,7 @@ public class HotelClocksSystemController {
         phoneClock.synchronizeClocks(hotelClocksSystem.getClocks());
     }
 
-//    public static void main(String[] args) throws Exception {
-//        new HotelClocksSystemController().displayClocks();
-//        new HotelClocksSystemController().synchronizeClocksSystem();
-//        Thread.sleep(5000);
-//        new HotelClocksSystemController().displayClocks();
-//    }
+
+
 
 }

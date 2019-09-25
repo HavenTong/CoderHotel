@@ -34,11 +34,5 @@ public class HotelClocksSystem {
         this.clocks = clocks;
     }
 
-//    public static void main(String[] args) {
-//        HotelClocksSystem hotelClocksSystem = new HotelClocksSystem();
-//        Map<String, Object> tempClocks = hotelClocksSystem.getClocks();
-//        for (Map.Entry<String, Object> entry : tempClocks.entrySet()){
-//            System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
-//        }
-//    }
+
 }
